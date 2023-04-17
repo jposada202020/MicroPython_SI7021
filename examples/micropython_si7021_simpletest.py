@@ -11,4 +11,3 @@ while True:
     print("Temperature: ", si.temperature)
     print("Humidity: ", si.humidity)
     time.sleep(1)
-

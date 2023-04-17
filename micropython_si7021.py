@@ -19,7 +19,7 @@ This library depends on Micropython
 
 """
 
-# pylint: disable=too-many-arguments, line-too-long
+# pylint: disable=too-many-arguments, missing-function-docstring, unused-variable
 
 import time
 from micropython import const
@@ -39,10 +39,10 @@ class RegisterStructRW:
     """
 
     def __init__(
-            self,
-            form: str,
-            cmd_read: int = None,
-            cmd_write: int = None,
+        self,
+        form: str,
+        cmd_read: int = None,
+        cmd_write: int = None,
     ) -> None:
         self.format = form
         self.lenght = struct.calcsize(form)
@@ -50,9 +50,9 @@ class RegisterStructRW:
         self.cmd_write = cmd_write
 
     def __get__(
-            self,
-            obj,
-            objtype=None,
+        self,
+        obj,
+        objtype=None,
     ):
         payload = bytes([self.cmd_read])
         obj._i2c.writeto(obj._address, payload)
@@ -128,10 +128,20 @@ class SI7021:
 
     _reg_1 = RegisterStructRW("B", 0xE7, 0xE6)
 
-    _sensor_res = {0: "TEMP_14_RH_12", 1: "TEMP_12_RH_8", 128: "TEMP_13_RH_10", 129: "TEMP_11_RH_11"}
+    _sensor_res = {
+        0: "TEMP_14_RH_12",
+        1: "TEMP_12_RH_8",
+        128: "TEMP_13_RH_10",
+        129: "TEMP_11_RH_11",
+    }
     _heater_status = {0: "OFF", 4: "ON"}
     # Conversion Times According to Datasheet Table 2
-    conversion_time = {"TEMP_14_RH_12": 10.8, "TEMP_12_RH_8": 3.8, "TEMP_13_RH_10": 6.2, "TEMP_11_RH_11": 2.4}
+    conversion_time = {
+        "TEMP_14_RH_12": 10.8,
+        "TEMP_12_RH_8": 3.8,
+        "TEMP_13_RH_10": 6.2,
+        "TEMP_11_RH_11": 2.4,
+    }
 
     # Register User 1
     # | RES(1) | VDDS |  ---- | ---- | ---- | HTRE | ---- | RES(0) |
@@ -207,8 +217,8 @@ class SI7021:
     @property
     def temperature(self):
         """
-        Returns the temperature in Celsius. Temperature resolution can be adjusted with the :attribute:`temperature`
-        attribute
+        Returns the temperature in Celsius. Temperature resolution can be adjusted with
+        the :attribute:`temperature` attribute
 
         Example
         ########
@@ -236,8 +246,8 @@ class SI7021:
 
     @property
     def humidity(self):
-        """Returns the humidity in %. Temperature resolution can be adjusted with the :attribute:`humidity`
-        attribute
+        """Returns the humidity in %. Temperature resolution can be adjusted with the
+         :attribute:`humidity` attribute
 
         Example
         ########
@@ -255,7 +265,7 @@ class SI7021:
 
         """
         data = bytearray(3)
-        data[0] = 0xFF
+        data[0] = 0x69
         self._i2c.writeto(self._address, struct.pack("B", _HUMIDITY_NOHOLD_CMD))
         print("por aca pase")
         time.sleep(self._conversion_time / 1000)
@@ -273,7 +283,7 @@ class SI7021:
             except OSError:
                 pass
             else:
-                if data[0] != 0xFF:
+                if data[0] != 0x69:
                     break
         return data
 
@@ -316,4 +326,3 @@ class SI7021:
         mask = 0b11111011
         reg_to_write = self._reg_1 & mask | value
         self._reg_1 = reg_to_write
-

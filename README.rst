@@ -38,5 +38,3 @@ To install in a virtual environment in your current project:
 Documentation
 =============
 API documentation for this library can be found on `Read the Docs <https://micropython-si7021.readthedocs.io/>`_.
-
-
