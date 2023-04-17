@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 """
-`si7021`
+`micropython_si7021`
 ================================================================================
 
 MicroPython Driver for the SI7021 Temperature and Humidity sensor
@@ -102,7 +102,7 @@ class SI7021:
 
     **Quickstart: Importing and using the device**
 
-    Here is an example of using the :class:`SI7021` class.
+    Here is an example of using the :class:`micropython_si7021.SI7021` class.
     First you will need to import the libraries to use the sensor
 
     .. code-block:: python
@@ -156,7 +156,7 @@ class SI7021:
         """
         Meassurement resolution. The resolution of the measures. This will return the
         `temperature` and `humidity` resolution. These values are linked so change the
-        resolution in temperature will affect humidity<s resolution
+        resolution in temperature will affect humidity's resolution
 
         +----------+--------+--------+
         | Value    | RH     | Temp   |
@@ -218,7 +218,7 @@ class SI7021:
     def temperature(self):
         """
         Returns the temperature in Celsius. Temperature resolution can be adjusted with
-        the :attribute:`temperature` attribute
+        the :attr:`temperature` attribute
 
         Example
         ########
@@ -247,7 +247,7 @@ class SI7021:
     @property
     def humidity(self):
         """Returns the humidity in %. Temperature resolution can be adjusted with the
-         :attribute:`humidity` attribute
+         :attr:`humidity` attribute
 
         Example
         ########
@@ -267,7 +267,7 @@ class SI7021:
         data = bytearray(3)
         data[0] = 0x69
         self._i2c.writeto(self._address, struct.pack("B", _HUMIDITY_NOHOLD_CMD))
-        print("por aca pase")
+
         time.sleep(self._conversion_time / 1000)
         data = self.verify_data(data)
 
