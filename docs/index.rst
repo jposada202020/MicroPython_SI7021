@@ -10,10 +10,7 @@ Table of Contents
 
     self
 
-.. toctree::
-    :caption: Examples
 
-    examples
 
 .. toctree::
     :caption: API Reference
@@ -21,10 +18,8 @@ Table of Contents
 
     api
 
+.. toctree::
+    :caption: Examples
+    :hidden:
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+    examples
