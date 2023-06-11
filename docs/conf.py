@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+# SPDX-FileCopyrightText: 2023 Jose D. Montoya
 #
 # SPDX-License-Identifier: MIT
 
@@ -86,7 +84,6 @@ todo_include_todos = False
 todo_emit_warnings = False
 napoleon_numpy_docstring = False
 
-
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -102,7 +99,7 @@ html_theme_options = {
         {
             "media": "(prefers-color-scheme: light)",
             "scheme": "default",
-            "primary": "green",
+            "primary": "purple",
             "accent": "light-blue",
             "toggle": {
                 "icon": "material/lightbulb-outline",
@@ -112,7 +109,7 @@ html_theme_options = {
         {
             "media": "(prefers-color-scheme: dark)",
             "scheme": "slate",
-            "primary": "green",
+            "primary": "purple",
             "accent": "light-blue",
             "toggle": {
                 "icon": "material/lightbulb",
@@ -131,10 +128,6 @@ html_theme_options = {
         {
             "icon": "fontawesome/brands/python",
             "link": "https://pypi.org/project/micropython-si7021/",
-        },
-        {
-            "icon": "fontawesome/brands/discord",
-            "link": "https://adafru.it/discord",
         },
         {
             "name": "MicroPython Downloads",
@@ -203,6 +196,7 @@ html_css_files = ["extra_css.css"]
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
+#
 html_favicon = "_static/favicon.ico"
 
 html_logo = "_static/Logo.png"
