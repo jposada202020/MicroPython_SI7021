@@ -21,6 +21,7 @@ urls = {Homepage = "https://github.com/jposada202020/MicroPython_SI7021"}
 keywords = [
     "micropython",
     "micropython_si7021",
+    "si7021",
     "sensor",
     "temperature",
     "humidity",
@@ -41,4 +42,3 @@ packages = ["micropython_si7021"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
-optional-dependencies = {optional = {file = ["optional_requirements.txt"]}}

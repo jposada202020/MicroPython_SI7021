@@ -23,3 +23,8 @@ Table of Contents
     :hidden:
 
     examples
+
+.. toctree::
+    :caption: Other Links
+
+    Download from GitHub <https://github.com/jposada202020/MicroPython_SI7021/releases/latest>
