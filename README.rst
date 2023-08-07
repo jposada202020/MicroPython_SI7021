@@ -37,7 +37,7 @@ To install directly using a WIFI capable board
 
 .. code-block:: shell
 
-    mip install github:jposada202020/MicroPython_SI7021
+    mip.install("github:jposada202020/MicroPython_SI7021")
 
 
 Installing Library Examples
@@ -53,7 +53,7 @@ To install directly using a WIFI capable board
 
 .. code-block:: shell
 
-    mip install github:jposada202020/MicroPython_SI7021/examples.json
+    mip.install("github:jposada202020/MicroPython_SI7021/examples.json")
 
 
 
